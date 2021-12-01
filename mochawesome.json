@@ -1,0 +1,164 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-12-01T00:19:54.759Z",
+    "end": "2021-12-01T00:20:55.932Z",
+    "duration": 61173,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ae38d34-aa9b-4f9e-b06c-f0910552822a",
+      "title": "",
+      "fullFile": "cypress/integration/register-client.spec.js",
+      "file": "cypress/integration/register-client.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8aecf392-4da1-44f0-b2e7-5a0eda51846f",
+          "title": "Register customer on the website",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Registration successfully: When entering the data correctly, then the account data must be displayed.",
+              "fullTitle": "Register customer on the website Registration successfully: When entering the data correctly, then the account data must be displayed.",
+              "timedOut": null,
+              "duration": 19324,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.toCreateAccount();\ncy.fillFields();\ncy.checkAccountData();",
+              "err": {},
+              "uuid": "998cb0bc-7655-4d43-8fcb-dcdaa5cc10e6",
+              "parentUUID": "8aecf392-4da1-44f0-b2e7-5a0eda51846f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Email already registered: When entering an email already registered, then an message stating that the email has already been registered",
+              "fullTitle": "Register customer on the website Email already registered: When entering an email already registered, then an message stating that the email has already been registered",
+              "timedOut": null,
+              "duration": 21976,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.toCreateAccount();\ncy.fillFields();\ncy.checkAccountData();\ncy.get('.logout').click();\ncy.get('@email').then(email => {\n  cy.get('input#email_create').should('be.visible').type(email);\n  cy.get('i.icon-user.left').click();\n});\ncy.get('#create_account_error li').should('have.text', 'An account using this email address has already been registered. Please enter a valid password or request a new one. ');",
+              "err": {},
+              "uuid": "4c8cd9ef-a91c-447a-9931-cff29f9c2864",
+              "parentUUID": "8aecf392-4da1-44f0-b2e7-5a0eda51846f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Missing mandatory data: When submitting the registration without the mandatory data, then an informational message requesting the required data must  be displayed.",
+              "fullTitle": "Register customer on the website Missing mandatory data: When submitting the registration without the mandatory data, then an informational message requesting the required data must  be displayed.",
+              "timedOut": null,
+              "duration": 7761,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.toCreateAccount();\ncy.get('button#submitAccount').click();\ncy.get('.alert.alert-danger ol li').should('be.visible');\ncy.get('.alert.alert-danger ol li').should('have.length', 8);",
+              "err": {},
+              "uuid": "f4a90a61-1bae-4a6b-b6c9-b5e7b8aefcb0",
+              "parentUUID": "8aecf392-4da1-44f0-b2e7-5a0eda51846f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Missing email: When submitting the registration without the field email, then an informational message requesting the email must be displayed.",
+              "fullTitle": "Register customer on the website Missing email: When submitting the registration without the field email, then an informational message requesting the email must be displayed.",
+              "timedOut": null,
+              "duration": 5578,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#page a.login').click();\ncy.get('i.icon-user.left').click();\ncy.get('#create_account_error li').should('have.text', 'Invalid email address.');\ncy.get('#create-account_form h3').should('have.text', 'Create an account');",
+              "err": {},
+              "uuid": "ad7ce1bc-b44f-4325-9f12-8767b9bc5639",
+              "parentUUID": "8aecf392-4da1-44f0-b2e7-5a0eda51846f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "998cb0bc-7655-4d43-8fcb-dcdaa5cc10e6",
+            "4c8cd9ef-a91c-447a-9931-cff29f9c2864",
+            "f4a90a61-1bae-4a6b-b6c9-b5e7b8aefcb0",
+            "ad7ce1bc-b44f-4325-9f12-8767b9bc5639"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 54639,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "mochawesome-report",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}
